@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
-import { useActions } from '../../hooks/useActions'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { contactsSelector } from '../../store/contacts/reducer'
 
 export const ContactsList: FC = () => {
-  const { getContacts } = useActions()
+  const contacts = useTypedSelector(contactsSelector)
+
   return <h3>List</h3>
 }

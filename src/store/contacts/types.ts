@@ -23,4 +23,8 @@ interface IGetContactsErrorAction {
   payload: string
 }
 
+export interface IContactsData {
+  contacts: IContact[]
+}
+
 export type ContactAction = IGetContactsAction | IGetContactsSuccesAction | IGetContactsErrorAction

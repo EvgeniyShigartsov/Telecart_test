@@ -1,3 +1,5 @@
+import { RootState } from '..'
+import { IContact } from '../../globalTypes/globalTypes'
 import { IContactsState, ContactAction, ContactsActionTypes as types } from './types'
 
 const initialState: IContactsState = {
@@ -7,6 +9,7 @@ const initialState: IContactsState = {
 }
 
 export const MODULE_NAME = 'contacts'
+export const contactsSelector = (state: RootState):IContact[] => state.contacts.contacts
 
 export const reducer = (state = initialState, action: ContactAction): IContactsState => {
   switch (action.type) {
