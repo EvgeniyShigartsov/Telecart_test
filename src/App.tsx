@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { ContactsList } from './components/ContactsList/ContactsList'
 import { useActions } from './hooks/useActions';
+import { Header } from './components/Header/Header'
 
 const App: FC = () => {
   const { getContactsFromDB } = useActions()
@@ -10,7 +11,7 @@ const App: FC = () => {
   }, [])
   return (
     <div className="app">
-      <h1>Hello world</h1>
+      <Header />
       <ContactsList />
     </div>
   );

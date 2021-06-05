@@ -6,3 +6,5 @@ body {
 .app {
   text-align: center;
 }
+
+@import 'bootstrap/dist/css/bootstrap.min.css'
