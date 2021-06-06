@@ -29,7 +29,7 @@ export const Contact: FC<IContactProps> = ({ data }) => {
   }
 
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card>
       <Card.Body>
         <Card.Title>
           {data.name}

@@ -133,7 +133,7 @@ export const UpdateContactForm: FC<IUpdateContactFormProps> = ({ contact }) => {
         Cancel
       </Button>
       <Button variant="success" type="submit">
-        Create
+        Save
       </Button>
     </Form>
   )
