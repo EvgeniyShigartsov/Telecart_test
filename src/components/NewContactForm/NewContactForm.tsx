@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { useActions } from '../../hooks/useActions'
+import { IContact } from '../../globalTypes/globalTypes'
 
 interface IFullName {
   name: string,
@@ -12,7 +13,7 @@ interface IOtherData {
 }
 
 export const NewContactForm: FC = () => {
-  const { hideModal } = useActions()
+  const { hideModal, createContact } = useActions()
 
   const [fullName, setFullName] = useState<IFullName>({ name: '', lastname: '' })
   const [otherData, setOtherData] = useState<IOtherData>({ age: '', pager: '' })
@@ -49,6 +50,13 @@ export const NewContactForm: FC = () => {
       setSubmitError(true)
       return
     }
+    const contact: IContact = {
+      name: fullName.name,
+      lastname: fullName.lastname,
+      age: Number(otherData.age),
+      pager: Number(otherData.pager),
+    }
+    createContact(contact)
     hideModal()
   }
   return (

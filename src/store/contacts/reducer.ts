@@ -30,6 +30,11 @@ export const reducer = (state = initialState, action: ContactAction): IContactsS
         isLoading: false,
         error: action.payload,
       }
+    case types.ADD_CONTACT:
+      return {
+        ...state,
+        contacts: action.payload,
+      }
     default:
       return state
   }
