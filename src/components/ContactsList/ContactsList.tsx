@@ -9,7 +9,7 @@ export const ContactsList: FC = () => {
 
   return (
     <Container>
-      <Row className="justify-content-md-center">
+      <Row className="justify-content-center">
         {contacts.map((contact) => <Contact key={contact.pager} data={contact} />)}
       </Row>
     </Container>

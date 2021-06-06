@@ -1,4 +1,4 @@
-import { RootState } from '..'
+import { RootState } from '../index'
 import { IContact } from '../../globalTypes/globalTypes'
 import { IContactsState, ContactAction, ContactsActionTypes as types } from './types'
 
