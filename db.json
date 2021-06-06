@@ -1,0 +1,28 @@
+{
+  "contacts": [
+    {
+      "name": "Clark",
+      "lastname": "Kent",
+      "age": 33,
+      "pager": 959697
+    },
+    {
+      "name": "Bruce",
+      "lastname": "Wayne",
+      "age": 45,
+      "pager": 959698
+    },
+    {
+      "name": "Peter",
+      "lastname": "Parker",
+      "age": 17,
+      "pager": 959699
+    },
+    {
+      "name": "Tony",
+      "lastname": "Stark",
+      "age": 43,
+      "pager": 959700
+    }
+  ]
+}
