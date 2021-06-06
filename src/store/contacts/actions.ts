@@ -34,5 +34,13 @@ export const createContact = (contact: IContact) => (dispatch: Dispatch<ContactA
   const updated = [...contacts, contact]
 
   localStorage.setItem(contactsLSKey, JSON.stringify(updated))
-  dispatch({ type: types.ADD_CONTACT, payload: updated })
+  dispatch({ type: types.UPDATE_CONTACTS_LIST, payload: updated })
+}
+
+export const deleteContact = (pager: number) => (dispatch: Dispatch<ContactAction>): void => {
+  const contacts = getContactsFromLS()
+  const updated = contacts.filter((contact) => contact.pager !== pager)
+
+  localStorage.setItem(contactsLSKey, JSON.stringify(updated))
+  dispatch({ type: types.UPDATE_CONTACTS_LIST, payload: updated })
 }

@@ -9,7 +9,7 @@ export enum ContactsActionTypes {
   GET_CONTACTS = 'GET_CONTACTS',
   GET_CONTACTS_SUCCES = 'GET_CONTACTS_SUCCES',
   GET_CONTACTS_ERROR = 'GET_CONTACTS_ERROR',
-  ADD_CONTACT = 'CREATE_CONTACT',
+  UPDATE_CONTACTS_LIST = 'UPDATE_CONTACTS'
 }
 
 interface IGetContactsAction {
@@ -23,8 +23,8 @@ interface IGetContactsErrorAction {
   type: ContactsActionTypes.GET_CONTACTS_ERROR,
   payload: string
 }
-interface IAddContactAction {
-  type: ContactsActionTypes.ADD_CONTACT,
+interface IUpdateContactsListAction {
+  type: ContactsActionTypes.UPDATE_CONTACTS_LIST,
   payload: IContact[]
 }
 
@@ -36,4 +36,4 @@ export type ContactAction =
   IGetContactsAction
   | IGetContactsSuccesAction
   | IGetContactsErrorAction
-  | IAddContactAction
+  | IUpdateContactsListAction
