@@ -4,13 +4,11 @@ export interface IModalState {
   isOpen: boolean
   header: string
   body: React.ReactNode
-  onOkCallback: null | (() => void)
 }
 
 export interface IOnOpenPayload {
   header: string
   body: React.ReactChild
-  onOkCallback: null | (() => void)
 }
 
 export enum ModalActionTypes {

@@ -6,5 +6,7 @@ body {
 .app {
   text-align: center;
 }
-
+.warn-text {
+  color: tomato !important;
+}
 @import 'bootstrap/dist/css/bootstrap.min.css'

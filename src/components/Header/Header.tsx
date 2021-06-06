@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { Navbar, Button } from 'react-bootstrap'
 import { useActions } from '../../hooks/useActions'
 import { IOnOpenPayload } from '../../store/modal/types'
+import { NewContactForm } from '../NewContactForm/NewContactForm'
 
 export const Header: FC = () => {
   const { openModal } = useActions()
@@ -9,8 +10,7 @@ export const Header: FC = () => {
   const handleClick = (): void => {
     const payload: IOnOpenPayload = {
       header: 'Add new contact',
-      body: <div>Body!</div>,
-      onOkCallback: null,
+      body: <NewContactForm />,
     }
     openModal(payload)
   }

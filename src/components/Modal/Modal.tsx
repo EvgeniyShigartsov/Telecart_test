@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Modal as ModalBootsrap, Button } from 'react-bootstrap'
+import { Modal as ModalBootsrap } from 'react-bootstrap'
 import { useActions } from '../../hooks/useActions'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 
@@ -8,14 +8,7 @@ export const Modal: FC = () => {
   const isOpen = useTypedSelector((state) => state.modal.isOpen)
   const heading = useTypedSelector((state) => state.modal.header)
   const body = useTypedSelector((state) => state.modal.body)
-  const onOkCallback = useTypedSelector((state) => state.modal.onOkCallback)
 
-  const handleOk = (): void => {
-    hideModal()
-    if (typeof onOkCallback === 'function') {
-      onOkCallback()
-    }
-  }
   return (
     <ModalBootsrap
       show={isOpen}
@@ -32,10 +25,6 @@ export const Modal: FC = () => {
       <ModalBootsrap.Body>
         {body}
       </ModalBootsrap.Body>
-      <ModalBootsrap.Footer>
-        <Button onClick={hideModal}>Close</Button>
-        <Button onClick={handleOk} variant="success">Add</Button>
-      </ModalBootsrap.Footer>
     </ModalBootsrap>
   )
 }
