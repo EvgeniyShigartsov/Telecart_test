@@ -3,7 +3,8 @@ import { Button, Card } from 'react-bootstrap'
 import { IContact } from '../../../globalTypes/globalTypes'
 import { useActions } from '../../../hooks/useActions'
 import { DeleteContactForm } from '../../DeleteContactForm/DeleteContactForm'
-import { IOnOpenPayload } from '../../../store/modal/types'
+import { IOnModalOpenPayload } from '../../../store/modal/types'
+import { UpdateContactForm } from '../../UpdateContactForm/UpdateContactForm'
 
 interface IContactProps {
   data: IContact
@@ -13,11 +14,18 @@ export const Contact: FC<IContactProps> = ({ data }) => {
   const { openModal } = useActions()
 
   const deleteHandler = (): void => {
-    const payload: IOnOpenPayload = {
+    const modalPayload: IOnModalOpenPayload = {
       header: 'Delete contact',
       body: <DeleteContactForm name={data.name} lastname={data.lastname} pager={data.pager} />,
     }
-    openModal(payload)
+    openModal(modalPayload)
+  }
+  const editHandler = (): void => {
+    const modalPayload: IOnModalOpenPayload = {
+      header: 'Edit contact',
+      body: <UpdateContactForm contact={data} />,
+    }
+    openModal(modalPayload)
   }
 
   return (
@@ -38,7 +46,7 @@ export const Contact: FC<IContactProps> = ({ data }) => {
           {' '}
           {data.pager}
         </Card.Text>
-        <Button variant="primary" className="mr-2">Edit contact</Button>
+        <Button variant="primary" onClick={editHandler} className="mr-2">Edit contact</Button>
         <Button variant="secondary" onClick={deleteHandler}>Delete contact</Button>
       </Card.Body>
     </Card>

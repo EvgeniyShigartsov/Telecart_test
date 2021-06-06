@@ -1,7 +1,8 @@
 import { Dispatch } from 'redux'
-import { IOnOpenPayload, ModalAction, ModalActionTypes as types } from './types'
+import { IOnModalOpenPayload, ModalAction, ModalActionTypes as types } from './types'
 
-export const openModal = (payload: IOnOpenPayload) => (dispatch: Dispatch<ModalAction>): void => {
+// eslint-disable-next-line max-len
+export const openModal = (payload: IOnModalOpenPayload) => (dispatch: Dispatch<ModalAction>): void => {
   dispatch({ type: types.SHOW_MODAL, payload })
 }
 export const hideModal = () => (dispatch: Dispatch<ModalAction>): void => {

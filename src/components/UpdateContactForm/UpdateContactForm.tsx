@@ -1,22 +1,31 @@
 import React, { FC, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import { useActions } from '../../hooks/useActions'
 import { IContact } from '../../globalTypes/globalTypes'
+import { useActions } from '../../hooks/useActions'
 
+interface IUpdateContactFormProps {
+  contact: IContact
+}
 interface IFullName {
   name: string,
   lastname: string
 }
 interface IOtherData {
   age: string,
-  pager: string
+  pager: string,
 }
 
-export const NewContactForm: FC = () => {
-  const { hideModal, createContact } = useActions()
+export const UpdateContactForm: FC<IUpdateContactFormProps> = ({ contact }) => {
+  const { hideModal, updateContact } = useActions()
+  const {
+    name,
+    lastname,
+    age,
+    pager,
+  } = contact
 
-  const [fullName, setFullName] = useState<IFullName>({ name: '', lastname: '' })
-  const [otherData, setOtherData] = useState<IOtherData>({ age: '', pager: '' })
+  const [fullName, setFullName] = useState<IFullName>({ name, lastname })
+  const [otherData, setOtherData] = useState<IOtherData>({ age: String(age), pager: String(pager) })
   const [submitError, setSubmitError] = useState<boolean>(false)
 
   const handleFullName = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -50,15 +59,16 @@ export const NewContactForm: FC = () => {
       setSubmitError(true)
       return
     }
-    const contact: IContact = {
+    const updatedContact: IContact = {
       name: fullName.name,
       lastname: fullName.lastname,
       age: Number(otherData.age),
       pager: Number(otherData.pager),
     }
-    createContact(contact)
+    updateContact(pager, updatedContact)
     hideModal()
   }
+
   return (
     <Form onSubmit={onSubmit}>
       <Form.Group controlId="name">

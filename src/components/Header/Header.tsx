@@ -1,18 +1,18 @@
 import React, { FC } from 'react'
 import { Navbar, Button } from 'react-bootstrap'
 import { useActions } from '../../hooks/useActions'
-import { IOnOpenPayload } from '../../store/modal/types'
+import { IOnModalOpenPayload } from '../../store/modal/types'
 import { NewContactForm } from '../NewContactForm/NewContactForm'
 
 export const Header: FC = () => {
   const { openModal } = useActions()
 
   const handleClick = (): void => {
-    const payload: IOnOpenPayload = {
+    const modalPayload: IOnModalOpenPayload = {
       header: 'Add new contact',
       body: <NewContactForm />,
     }
-    openModal(payload)
+    openModal(modalPayload)
   }
 
   return (

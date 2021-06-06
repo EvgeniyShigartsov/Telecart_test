@@ -6,7 +6,7 @@ export interface IModalState {
   body: React.ReactNode
 }
 
-export interface IOnOpenPayload {
+export interface IOnModalOpenPayload {
   header: string
   body: React.ReactChild
 }
@@ -18,7 +18,7 @@ export enum ModalActionTypes {
 
 interface IShowModalAction {
   type: ModalActionTypes.SHOW_MODAL
-  payload: IOnOpenPayload
+  payload: IOnModalOpenPayload
 }
 
 interface ICloseModalAction {

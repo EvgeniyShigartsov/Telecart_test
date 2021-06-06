@@ -44,3 +44,17 @@ export const deleteContact = (pager: number) => (dispatch: Dispatch<ContactActio
   localStorage.setItem(contactsLSKey, JSON.stringify(updated))
   dispatch({ type: types.UPDATE_CONTACTS_LIST, payload: updated })
 }
+
+// eslint-disable-next-line max-len
+export const updateContact = (pager: number, updatedContact: IContact) => (dispatch: Dispatch<ContactAction>): void => {
+  const contacts = getContactsFromLS()
+  const updated = contacts.map((contact) => {
+    if (contact.pager === pager) {
+      return updatedContact
+    }
+    return contact
+  })
+
+  localStorage.setItem(contactsLSKey, JSON.stringify(updated))
+  dispatch({ type: types.UPDATE_CONTACTS_LIST, payload: updated })
+}
