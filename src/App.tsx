@@ -4,10 +4,10 @@ import { useActions } from './hooks/useActions';
 import { Header } from './components/Header/Header'
 
 const App: FC = () => {
-  const { getContactsFromDB } = useActions()
+  const { getContacts } = useActions()
 
   useEffect(() => {
-    getContactsFromDB()
+    getContacts()
   }, [])
   return (
     <div className="app">

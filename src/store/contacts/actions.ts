@@ -9,9 +9,12 @@ const getContactsFromLS = (): IContact[] => {
   return JSON.parse(items)
 }
 
-export const getContactsFromDB = () => (dispatch: Dispatch<ContactAction>): void => {
+export const getContacts = () => (dispatch: Dispatch<ContactAction>): void => {
   const contacts = getContactsFromLS()
-  if (contacts.length) return
+  if (contacts.length) {
+    dispatch({ type: types.GET_CONTACTS_SUCCES, payload: contacts })
+    return
+  }
 
   dispatch({ type: types.GET_CONTACTS })
 
